@@ -1,0 +1,145 @@
+<section class="search">
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag "http://mixi.lazisite.com/admin/resource/mixi/templace/1500622711302_Logo.png" %>
+    </div>
+    <div class="col-md-6">
+    <div class="input-group search-sidebar">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tat ca <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">Menh kim</a></li>
+          <li><a href="#">Menh moc</a></li>
+          <li><a href="#">Menh thuy</a></li>
+          <li><a href="#">Menh hoa</a></li>
+          <li><a href="#">Menh tho</a></li>
+        </ul>
+      </div><!-- /btn-group -->
+      <input type="text" class="form-control" aria-label="..." placeholder="Tim kiem theo ten hoac ma san pham">
+      <span class="input-group-addon">
+        <%= link_to do %>
+          <span class="glyphicon glyphicon-search"></span>
+        <% end %>
+      </span>
+    </div><!-- /input-group -->
+  </div>
+</section>
+<br>
+<section class="introduce">
+  <div class="row">
+
+    <div class="col-md-12 introduce-md9">
+      <ul class="main-index">
+        <li><a href="#" style="margin-right: 10px; padding-left: 0px;">DANH MUC SAN PHAM</a></li>
+        <li><a href="#">TRANG CHU</a></li>
+        <li>
+          <a href="#" class="dropdown-horoscope" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SAN PHAM THEO MENH <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-menu-introduce">
+            <li><%= link_to "Menh kim", "" %></li>
+            <li><%= link_to "Menh moc", "" %></li>
+            <li><%= link_to "Menh thuy", "" %></li>
+            <li><%= link_to "Menh hoa", "" %></li>
+            <li><%= link_to "Menh tho", "" %></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="dropdown-news" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">TIN TUC <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-menu-introduce">
+            <li><%= link_to "Tuyen dung nhan su", "" %></li>
+            <li><%= link_to "Tuyen dung dai ly ban buon", "" %></li>
+            <li><%= link_to "Tuyen dung CTV ban hang", "" %></li>
+            <li><%= link_to "Hoat dong cua VPPT", "" %></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="dropdown-news" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CHINH SACH <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-menu-introduce">
+            <li><%= link_to "Huong dan dat hang", "" %></li>
+            <li><%= link_to "Chinh sach van chuyen", "" %></li>
+            <li><%= link_to "Chinh sach mua hang", "" %></li>
+            <li><%= link_to "Chinh sach tri an khach hang", "" %></li>
+          </ul>
+        </li>
+        <li><a href="#">GIOI THIEU</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <ul class="category-products">
+        <% @categories.each do |category| %>
+          <li><span class="glyphicon glyphicon-star-empty"></span><a href=""> <%= category.name %></a></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-7">
+      <%= render "carousel"%>
+    </div>
+    <div class="col-md-3">
+      <div class="title-news">
+        BAN TIN NOI BO
+        <div class="news-icon">
+          <%= image_tag "http://mixi.vn/templace/mixi/resource/pc/images/CAMKETBANHANG-ICON.png"%>
+        </div>
+      </div>
+      <div class="list-news">
+        <ul>
+          <li><%= link_to "Khuyen mai cuc khung khi mua hang tai day"%></li>
+          <li><%= link_to "Khuyen mai cuc khung khi mua hang tai day"%></li>
+          <li><%= link_to "Khuyen mai cuc khung khi mua hang tai day"%></li>
+          <li><%= link_to "Khuyen mai cuc khung khi mua hang tai day"%></li>
+          <li><%= link_to "Khuyen mai cuc khung khi mua hang tai day"%></li>
+          <li><%= link_to "Khuyen mai cuc khung khi mua hang tai day"%></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content">
+  <br>
+  <div class="title-product">
+    Product
+  </div>
+  <div class="tab-bar">
+    <ul class="nav nav-tabs list-tab" role="tablist">
+      <li role="presentation" class="active"><a href="#best-selling" aria-controls="best-selling" role="tab" data-toggle="tab">Ban chay</a></li>
+      <li role="presentation"><a href="#new-product" aria-controls="new-product" role="tab" data-toggle="tab">Moi</a></li>
+      <li role="presentation"><a href="#sale-product" aria-controls="sale-product" role="tab" data-toggle="tab">Khuyen mai</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="best-selling">
+        <%= render "best_selling"%>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="new-product">...</div>
+      <div role="tabpanel" class="tab-pane" id="sale-product">...</div>
+    </div>
+  </div>
+</section>
+<div id="sale-open-modal">
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  // $('#sale-open-modal').modal('show');
+  $('.dropdown-toggle').dropdown();
+  $('.dropdown-horoscope').dropdown();
+  $('.dropdown-news').dropdown();
+</script>

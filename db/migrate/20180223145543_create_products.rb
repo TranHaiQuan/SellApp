@@ -1,4 +1,4 @@
-class CreateProducts < ActiveRecord::Migration[5.1]
+class CreateProducts < ActiveRecord::Migration[5.0]
   def change
     create_table :products do |t|
       t.string :name
@@ -10,7 +10,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.string :code
       t.integer :status
       t.string :price
-      t.integer :sale
+      t.integer :sale, default: 0
       t.string :avatar
       t.text :description
       t.references :subcategory, foreign_key: true

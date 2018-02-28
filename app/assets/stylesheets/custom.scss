@@ -1,0 +1,150 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "color";
+
+.basis h4 {
+  padding-right: 35px;
+  color: white;
+}
+
+.basis h4 span{
+   padding-right: 5px;
+  color: $amber;
+}
+
+.head {
+  background-color: black;
+  width: 100%;
+  height: 50px;
+  position: flex;
+}
+
+.shopping-cart {
+  background-color: #d30000;
+}
+
+.search-sidebar {
+  padding-top: 20px;
+}
+
+.col-md-12.introduce-md9 {
+  height: 42px;
+  h4 {
+    margin-top: 12px;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.main-index li {
+  float: left;
+
+  a {
+    display: block;
+    text-align: center;
+    padding: 10px 17px;
+    text-decoration: none;
+    color: black;
+    &:hover {
+      background-color: $amber;
+    }
+  }
+}
+
+ul.dropdown-menu-introduce {
+  background-color: $amber;
+}
+
+ul.category-products {
+  li {
+    padding: 12px 2px;
+    border-bottom: 1px solid gray;
+    a {
+      color: black;
+    }
+  }
+}
+
+.title-news {
+  height: 42px;
+  background-color: #d30000;
+  line-height: 42px;
+  font-family: "Open Sans", sans-serif;
+  text-align: left;
+  padding: 0 0 0 15px;
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  color: #FFF;
+  border-radius: 21px 21px;
+  box-shadow: 5px 5px 20px #a0a0a0;
+}
+
+.news-icon {
+  position: absolute;
+  top: -2px;
+  right: 0;
+}
+
+.list-news ul{
+  list-style-type: none;
+  background-color: yellow;
+  li {
+    padding: 9px 10px;
+    border-bottom: 1px dashed gray;
+    a {
+      color: black;
+    }
+  }
+}
+
+.title-product {
+  height: 42px;
+  background-color: #d30000;
+  line-height: 42px;
+  font-family: "Open Sans", sans-serif;
+  text-align: left;
+  padding: 0 0 0 15px;
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  color: #FFF;
+  margin-bottom: 15px;
+}
+
+.tab-bar .nav-tabs li {
+  .active {
+    color: white;
+    background-color: $amber;
+  }
+  a {
+    padding: 10px 20px;
+    font-weight: bold;
+    color: black;
+    background-color: gray;
+    &:hover {
+      color: white;
+      background-color: $amber;
+    }
+  }
+}
+
+.products {
+  margin-top: 25px;
+
+}
+
+img.main-avatar-product {
+  width: 150px;
+  height: 150px;
+}
+
+.name-product b {
+  float: left;
+  color: black;
+}

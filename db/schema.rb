@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180225152708) do
+ActiveRecord::Schema.define(version: 20180303032438) do
 
-  create_table "backgrounds", force: :cascade do |t|
+  create_table "backgrounds", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "image"
     t.integer "infomation_id"
     t.datetime "created_at", null: false
@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(version: 20180225152708) do
     t.index ["infomation_id"], name: "index_backgrounds_on_infomation_id"
   end
 
-  create_table "bases", force: :cascade do |t|
+  create_table "bases", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "address"
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "avatar"
     t.integer "user_id"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20180225152708) do
     t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
-  create_table "horoscopes", force: :cascade do |t|
+  create_table "horoscopes", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.integer "product_id"
     t.datetime "created_at", null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20180225152708) do
     t.index ["product_id"], name: "index_horoscopes_on_product_id"
   end
 
-  create_table "infomations", force: :cascade do |t|
+  create_table "infomations", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email"
     t.string "image_logo"
     t.string "video_url"
@@ -53,14 +53,14 @@ ActiveRecord::Schema.define(version: 20180225152708) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "norms", force: :cascade do |t|
+  create_table "norms", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "icon"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "color"
     t.integer "size"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20180225152708) do
     t.string "code"
     t.integer "status"
     t.string "price"
-    t.integer "sale"
+    t.integer "sale", default: 0
     t.string "avatar"
     t.text "description"
     t.integer "subcategory_id"
@@ -78,12 +78,14 @@ ActiveRecord::Schema.define(version: 20180225152708) do
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sold"
+    t.boolean "is_best_selling"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["subcategory_id"], name: "index_products_on_subcategory_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
-  create_table "subcategories", force: :cascade do |t|
+  create_table "subcategories", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.integer "category_id"
     t.datetime "created_at", null: false
@@ -91,7 +93,7 @@ ActiveRecord::Schema.define(version: 20180225152708) do
     t.index ["category_id"], name: "index_subcategories_on_category_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -113,4 +115,11 @@ ActiveRecord::Schema.define(version: 20180225152708) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "backgrounds", "infomations"
+  add_foreign_key "categories", "users"
+  add_foreign_key "horoscopes", "products"
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "subcategories"
+  add_foreign_key "products", "users"
+  add_foreign_key "subcategories", "categories"
 end
